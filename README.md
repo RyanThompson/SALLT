@@ -1,59 +1,55 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SALT
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**S**treams · **A**lpine.js · **L**aravel · **L**ivewire · **T**ailwind
 
-## About Laravel
+Public create-project starter for the salty stack. You get a Laravel shell plus the Streams SDK; then a TUI walks an onboarding tree and generators emit what you need.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```bash
+composer create-project ryanthompson/salt my-app
+cd my-app
+php artisan salt:onboard
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+(Until Packagist lists it, create from GitHub:)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+composer create-project ryanthompson/salt my-app \
+  --repository='{"type":"vcs","url":"https://github.com/RyanThompson/salt"}'
+```
 
-## Learning Laravel
+## What you get (bare minimum)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+| Piece | Role |
+|---|---|
+| Laravel 12 shell | App runtime |
+| `streams/core` | Platform — streams, entries, repositories |
+| `streams/sdk` (dev) | `streams:make`, validate, capture — and the home for the onboard TUI |
+| Canon (optional local link) | `packages/adr-sallt` → ADR-SALLT (`000.3` principles, ADR `0001` stack lens) |
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Panel UI, API, Alpine surfaces, multi-tenancy, extra domains — **not** pre-baked. The onboard TUI discovers them, then generators write them.
 
-## Laravel Sponsors
+## Onboarding tree (TUI)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+`php artisan salt:onboard` (stub today; full TUI next) asks things like:
 
-### Premium Partners
+- Do you need a frontend?
+- Do you need a panel? More than one panel?
+- Multi-tenancy?
+- Kitchen sink vs defaults (hit enter)?
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Answers become a recipe → `streams:make` / KindRegistry generators emit code that passes ADR checklists.
 
-## Contributing
+Starter presets (todo, kitchen-sink, headless API) can sit on top of the same tree later.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Dogfood / local pins
 
-## Code of Conduct
+This checkout path-pins `streams/sdk` from `../_packages/streams-sdk` and may symlink ADR canon at `packages/adr-sallt`. Path repos are for Ryan’s machine while the SDK TUI lands; published create-project will use tagged packages.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Canon
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Reach order / platform: [ADR-SALLT `adr/0001`](https://github.com/RyanThompson/ADR-SALLT)
+- Gap map / punch list: same repo `RECONCILIATION.md`, `PUNCHLIST.md`
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT

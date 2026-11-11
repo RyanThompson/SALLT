@@ -1,14 +1,15 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "ryantompson/salt",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "SALLT — Streams, Alpine.js, Laravel, Livewire, Tailwind. composer create-project starter: Laravel shell + Streams SDK, then salt:onboard TUI.",
+    "keywords": ["sallt", "salt", "streams", "laravel", "alpine", "livewire", "tailwind"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "streams/core": "2.0.x-dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -17,8 +18,21 @@
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.50"
+        "phpunit/phpunit": "^11.5.50",
+        "streams/sdk": "dev-1.0#563babf4801b4058ce9a4fd82877314c26e74a71"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../_packages/streams-sdk",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "streams/sdk": "dev-1.0"
+                }
+            }
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
@@ -39,6 +53,9 @@
             "@php artisan migrate --force",
             "npm install",
             "npm run build"
+        ],
+        "onboard": [
+            "@php artisan salt:onboard"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -61,7 +78,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
+            "@php artisan migrate --graceful --ansi",
+            "@php -r \"fwrite(STDOUT, PHP_EOL.'SALT ready. Run: php artisan salt:onboard'.PHP_EOL.PHP_EOL);\""
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
@@ -81,6 +99,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
