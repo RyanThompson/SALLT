@@ -1,6 +1,6 @@
 # Agent notes: 🧂 SALLT
 
-Create-project starter (`ryantompson/sallt`). Brand: **🧂**.
+Create-project starter (`ryanthompson/sallt`). Brand: **🧂**.
 
 ## Flow
 

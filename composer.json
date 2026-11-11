@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "ryantompson/sallt",
+    "name": "ryanthompson/sallt",
     "type": "project",
     "description": "🧂 SALLT — Streams, Alpine.js, Laravel, Livewire, Tailwind. create-project: Laravel shell + streams/core + streams/sdk, then streams:onboard TUI.",
     "keywords": ["sallt", "streams", "laravel", "alpine", "livewire", "tailwind"],

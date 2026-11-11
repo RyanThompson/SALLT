@@ -50,7 +50,7 @@ Same discovery fashion for a JS client app. Onboard can ask: *Do you have a Stre
 
 ## Golden app: `RyanThompson/todos`
 
-When generation works, regenerate a todos app from a kitchen-sink (or documented) recipe and **rebase `ryantompson/todos` onto that output** so the public sample always matches the generator — not a hand-maintained fork.
+When generation works, regenerate a todos app from a kitchen-sink (or documented) recipe and **rebase `ryanthompson/todos` onto that output** so the public sample always matches the generator — not a hand-maintained fork.
 
 ## Local dogfood
 
