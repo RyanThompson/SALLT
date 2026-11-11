@@ -37,7 +37,12 @@ php artisan streams:onboard --defaults
 php artisan streams:onboard --kitchen-sink
 php artisan streams:onboard --json --no-write
 php artisan streams:onboard --surface=js   # path 2 preview
+php artisan streams:onboard --apply        # emit implemented steps (domain first)
+php artisan streams:onboard --kitchen-sink --apply --force
+php artisan streams:validate
 ```
+
+`--apply` currently scaffolds domain plumbing (Entry model, repository, lang locales, `streams/{handle}.json`, app-tree `$ref`). UI / API / Alpine / tenancy steps stay pending until their generators land.
 
 ## Path 2 — JS / front-end (later)
 

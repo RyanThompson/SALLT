@@ -7,8 +7,8 @@ Create-project starter (`ryantompson/sallt`). Brand: **🧂**.
 1. `composer create-project` → Laravel shell + **`streams/core`** + **`streams/sdk`** only (UI/API/domains come later from onboard).
 2. Create-project scripts finish (env key, sqlite, migrate).
 3. **`php artisan streams:onboard`** (alias `sallt:onboard`) — SDK TUI writes `streams.onboard.json`.
-4. Implement / run KindRegistry recipes against that recipe (**no templates bundled yet**).
-5. When generators are ready, rebase **`RyanThompson/todos`** onto regenerated output.
+4. **`php artisan streams:onboard --apply`** — emit implemented steps (domain plumbing first; UI/API/Alpine/tenancy still pending). **No templates bundled.**
+5. When generators cover the kitchen-sink recipe, rebase **`RyanThompson/todos`** onto regenerated output.
 
 ## Two paths
 
@@ -26,6 +26,7 @@ Create-project starter (`ryantompson/sallt`). Brand: **🧂**.
 ```bash
 composer onboard
 php artisan streams:onboard --defaults
+php artisan streams:onboard --kitchen-sink --apply
 php artisan streams:make --list --json
 php artisan streams:validate
 ```
