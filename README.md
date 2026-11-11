@@ -2,55 +2,56 @@
 
 **S**treams · **A**lpine.js · **L**aravel · **L**ivewire · **T**ailwind
 
-Brand mark: **🧂** (salt). Use it as the logo/icon everywhere we need a mark.
+Brand mark: **🧂**.
 
-Public create-project starter for the salty stack. You get a Laravel shell plus the Streams SDK; then a TUI walks an onboarding tree and generators emit what you need.
+## Path 1 — Laravel create-project (this repo)
 
-```bash
-composer create-project ryanthompson/sallt my-app
-cd my-app
-php artisan sallt:onboard
-```
-
-(Until Packagist lists it, create from GitHub:)
+Minimal download, then SDK onboard TUI. **No starter templates yet** — onboard records generation *options*; recipes emit code as generators land.
 
 ```bash
 composer create-project ryanthompson/sallt my-app \
   --repository='{"type":"vcs","url":"https://github.com/RyanThompson/SALLT"}'
 ```
 
-## What you get (bare minimum)
+What Composer installs on top of the Laravel shell:
 
-| Piece | Role |
+| Package | Role |
 |---|---|
-| Laravel 12 shell | App runtime |
-| `streams/core` | Platform — streams, entries, repositories |
-| `streams/sdk` (dev) | `streams:make`, validate, capture — and the home for the onboard TUI |
-| Canon (optional local link) | `packages/adr-sallt` → ADR-SALLT (`000.3` principles, ADR `0001` stack lens) |
+| `streams/core` | Platform |
+| `streams/sdk` | Generators + **`streams:onboard`** TUI |
 
-Panel UI, API, Alpine surfaces, multi-tenancy, extra domains — **not** pre-baked. The onboard TUI discovers them, then generators write them.
+After create-project scripts (key, sqlite, migrate), Composer runs:
 
-## Onboarding tree (TUI)
+```bash
+php artisan streams:onboard
+```
 
-`php artisan sallt:onboard` (stub today; full TUI next) asks things like:
+(`sallt:onboard` is an alias.)
 
-- Do you need a frontend?
-- Do you need a panel? More than one panel?
-- Multi-tenancy?
-- Kitchen sink vs defaults (hit enter)?
+That writes `streams.onboard.json` — a recipe of options (frontend, panels, tenancy, API, “discover existing Streams API/client?”, sample domain). Generators are not emitted until KindRegistry recipes exist for each step.
 
-Answers become a recipe → `streams:make` / KindRegistry generators emit code that passes ADR checklists.
+Flags for CI / scripting:
 
-Starter presets (todo, kitchen-sink, headless API) can sit on top of the same tree later.
+```bash
+php artisan streams:onboard --defaults
+php artisan streams:onboard --kitchen-sink
+php artisan streams:onboard --json --no-write
+php artisan streams:onboard --surface=js   # path 2 preview
+```
 
-## Dogfood / local pins
+## Path 2 — JS / front-end (later)
 
-This checkout path-pins `streams/sdk` from `../_packages/streams-sdk` and may symlink ADR canon at `packages/adr-sallt`. Path repos are for Ryan’s machine while the SDK TUI lands; published create-project will use tagged packages.
+Same discovery fashion for a JS client app. Onboard can ask: *Do you have a Streams API / client to discover?* and coordinate with a Path 1 Laravel SALLT app. Not shipped as a create-project yet; `--surface=js` exercises the shared recipe shape.
 
-## Canon
+## Golden app: `RyanThompson/todos`
 
-- Reach order / platform: [ADR-SALLT `adr/0001`](https://github.com/RyanThompson/ADR-SALLT)
-- Gap map / punch list: same repo `RECONCILIATION.md`, `PUNCHLIST.md`
+When generation works, regenerate a todos app from a kitchen-sink (or documented) recipe and **rebase `ryantompson/todos` onto that output** so the public sample always matches the generator — not a hand-maintained fork.
+
+## Local dogfood
+
+- Path-pin SDK: `../_packages/streams-sdk` (see `composer.json`)
+- Optional canon: `ln -sfn ../../_packages/ADR-SALLT packages/adr-sallt`
+- ADR lens: `adr/0001` · punch list: ADR-SALLT `PUNCHLIST.md`
 
 ## License
 

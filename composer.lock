@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b14e1497d03ef973fa55d272fa20da5e",
+    "content-hash": "f2063adc051f79d44d8d68856e144b82",
     "packages": [
         {
             "name": "brick/math",
@@ -3984,6 +3984,57 @@
                 "source": "https://github.com/laravel-streams/streams-core/tree/2.0"
             },
             "time": "2026-09-29T16:32:01+00:00"
+        },
+        {
+            "name": "streams/sdk",
+            "version": "dev-1.0",
+            "dist": {
+                "type": "path",
+                "url": "../_packages/streams-sdk",
+                "reference": "563babf4801b4058ce9a4fd82877314c26e74a71"
+            },
+            "require": {
+                "nikic/php-parser": "^4.14 || ^5.0",
+                "streams/core": "^2.0"
+            },
+            "require-dev": {
+                "streams/testing": "^1.0"
+            },
+            "suggest": {
+                "spatie/ignition": "Optional: surface streams:make fix solutions in Ignition and Flare error pages."
+            },
+            "type": "streams-addon",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Streams\\Sdk\\SdkServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Streams\\Sdk\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Streams\\Sdk\\Tests\\": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Ryan Thompson",
+                    "email": "ryan@pyrocms.com"
+                }
+            ],
+            "description": "Dev tools for Laravel + Streams.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "symfony/clock",
@@ -9154,57 +9205,6 @@
                 }
             ],
             "time": "2024-10-20T05:08:20+00:00"
-        },
-        {
-            "name": "streams/sdk",
-            "version": "dev-1.0",
-            "dist": {
-                "type": "path",
-                "url": "../_packages/streams-sdk",
-                "reference": "563babf4801b4058ce9a4fd82877314c26e74a71"
-            },
-            "require": {
-                "nikic/php-parser": "^4.14 || ^5.0",
-                "streams/core": "^2.0"
-            },
-            "require-dev": {
-                "streams/testing": "^1.0"
-            },
-            "suggest": {
-                "spatie/ignition": "Optional: surface streams:make fix solutions in Ignition and Flare error pages."
-            },
-            "type": "streams-addon",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Streams\\Sdk\\SdkServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Streams\\Sdk\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Streams\\Sdk\\Tests\\": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Ryan Thompson",
-                    "email": "ryan@pyrocms.com"
-                }
-            ],
-            "description": "Dev tools for Laravel + Streams.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
         },
         {
             "name": "theseer/tokenizer",

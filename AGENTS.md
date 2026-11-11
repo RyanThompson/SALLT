@@ -1,30 +1,31 @@
 # Agent notes: 🧂 SALLT
 
-This repo is the **SALLT create-project starter** (`ryantompson/sallt`), not a product app. Brand mark: **🧂**.
+Create-project starter (`ryantompson/sallt`). Brand: **🧂**.
 
-## Intent
+## Flow
 
-1. `composer create-project ryanthompson/sallt {app}` → Laravel shell + Streams core + SDK.
-2. `php artisan sallt:onboard` → TUI discovery tree (frontend / panel(s) / tenancy / defaults vs kitchen sink).
-3. Generators (`streams:make` + KindRegistry recipes) emit code from that recipe.
-4. Architecture law: `packages/adr-sallt` (or vendored ADR-SALLT) — read **000.3** (P1–P9), then **ADR 0001** (sole reach-order lens).
+1. `composer create-project` → Laravel shell + **`streams/core`** + **`streams/sdk`** only (UI/API/domains come later from onboard).
+2. Create-project scripts finish (env key, sqlite, migrate).
+3. **`php artisan streams:onboard`** (alias `sallt:onboard`) — SDK TUI writes `streams.onboard.json`.
+4. Implement / run KindRegistry recipes against that recipe (**no templates bundled yet**).
+5. When generators are ready, rebase **`RyanThompson/todos`** onto regenerated output.
 
-## Before changing generators
+## Two paths
 
-- Prefer extending SDK kinds/recipes over adding a `make:*` zoo.
-- Emit plumbing only (no business rules) unless the onboard recipe asked for a domain.
-- `streams:validate` must stay green after emit.
+| Path | Entry | Notes |
+|---|---|---|
+| 1 Laravel | this repo | Current |
+| 2 JS / front-end | later package | Same recipe keys; can discover existing Streams API |
 
-## Local layout
+## Canon
 
-- App root: this repo (`Sites/SALLT`)
-- SDK: path `../_packages/streams-sdk` (see `composer.json` repositories)
-- Canon: `packages/adr-sallt` → `../../_packages/ADR-SALLT`
+`packages/adr-sallt` (optional local link) → ADR-SALLT: **000.3** then **ADR 0001**.
 
 ## Commands
 
 ```bash
-composer onboard          # → php artisan sallt:onboard
+composer onboard
+php artisan streams:onboard --defaults
 php artisan streams:make --list --json
 php artisan streams:validate
 ```

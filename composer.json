@@ -2,14 +2,15 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "ryantompson/sallt",
     "type": "project",
-    "description": "🧂 SALLT — Streams, Alpine.js, Laravel, Livewire, Tailwind. composer create-project starter: Laravel shell + Streams SDK, then sallt:onboard TUI.",
+    "description": "🧂 SALLT — Streams, Alpine.js, Laravel, Livewire, Tailwind. create-project: Laravel shell + streams/core + streams/sdk, then streams:onboard TUI.",
     "keywords": ["sallt", "streams", "laravel", "alpine", "livewire", "tailwind"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "streams/core": "2.0.x-dev"
+        "streams/core": "2.0.x-dev",
+        "streams/sdk": "dev-1.0#563babf4801b4058ce9a4fd82877314c26e74a71"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -18,8 +19,7 @@
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.50",
-        "streams/sdk": "dev-1.0#563babf4801b4058ce9a4fd82877314c26e74a71"
+        "phpunit/phpunit": "^11.5.50"
     },
     "repositories": [
         {
@@ -50,12 +50,10 @@
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
-            "@php artisan migrate --force",
-            "npm install",
-            "npm run build"
+            "@php artisan migrate --force"
         ],
         "onboard": [
-            "@php artisan sallt:onboard"
+            "@php artisan streams:onboard"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -79,7 +77,7 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi",
-            "@php -r \"fwrite(STDOUT, PHP_EOL.'🧂 SALLT ready. Run: php artisan sallt:onboard'.PHP_EOL.PHP_EOL);\""
+            "@php artisan streams:onboard --ansi"
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
