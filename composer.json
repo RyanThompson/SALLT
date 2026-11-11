@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "ryantompson/salt",
+    "name": "ryantompson/sallt",
     "type": "project",
-    "description": "SALLT — Streams, Alpine.js, Laravel, Livewire, Tailwind. composer create-project starter: Laravel shell + Streams SDK, then salt:onboard TUI.",
-    "keywords": ["sallt", "salt", "streams", "laravel", "alpine", "livewire", "tailwind"],
+    "description": "🧂 SALLT — Streams, Alpine.js, Laravel, Livewire, Tailwind. composer create-project starter: Laravel shell + Streams SDK, then sallt:onboard TUI.",
+    "keywords": ["sallt", "streams", "laravel", "alpine", "livewire", "tailwind"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -55,7 +55,7 @@
             "npm run build"
         ],
         "onboard": [
-            "@php artisan salt:onboard"
+            "@php artisan sallt:onboard"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -79,7 +79,7 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi",
-            "@php -r \"fwrite(STDOUT, PHP_EOL.'SALT ready. Run: php artisan salt:onboard'.PHP_EOL.PHP_EOL);\""
+            "@php -r \"fwrite(STDOUT, PHP_EOL.'🧂 SALLT ready. Run: php artisan sallt:onboard'.PHP_EOL.PHP_EOL);\""
         ],
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"

@@ -1,20 +1,22 @@
-# SALT
+# 🧂 SALLT
 
 **S**treams · **A**lpine.js · **L**aravel · **L**ivewire · **T**ailwind
+
+Brand mark: **🧂** (salt). Use it as the logo/icon everywhere we need a mark.
 
 Public create-project starter for the salty stack. You get a Laravel shell plus the Streams SDK; then a TUI walks an onboarding tree and generators emit what you need.
 
 ```bash
-composer create-project ryanthompson/salt my-app
+composer create-project ryanthompson/sallt my-app
 cd my-app
-php artisan salt:onboard
+php artisan sallt:onboard
 ```
 
 (Until Packagist lists it, create from GitHub:)
 
 ```bash
-composer create-project ryanthompson/salt my-app \
-  --repository='{"type":"vcs","url":"https://github.com/RyanThompson/salt"}'
+composer create-project ryanthompson/sallt my-app \
+  --repository='{"type":"vcs","url":"https://github.com/RyanThompson/SALLT"}'
 ```
 
 ## What you get (bare minimum)
@@ -30,7 +32,7 @@ Panel UI, API, Alpine surfaces, multi-tenancy, extra domains — **not** pre-bak
 
 ## Onboarding tree (TUI)
 
-`php artisan salt:onboard` (stub today; full TUI next) asks things like:
+`php artisan sallt:onboard` (stub today; full TUI next) asks things like:
 
 - Do you need a frontend?
 - Do you need a panel? More than one panel?

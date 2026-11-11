@@ -5,22 +5,22 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 /**
- * Stub for the SALT create-project TUI.
+ * Stub for the SALLT create-project TUI.
  *
  * Full tree will live in streams/sdk and ask discovery questions, then run
  * KindRegistry recipes. This command documents the intended flow until then.
  */
-class SaltOnboard extends Command
+class SalltOnboard extends Command
 {
-    protected $signature = 'salt:onboard
+    protected $signature = 'sallt:onboard
                             {--defaults : Accept the default (minimal) recipe without prompts}
                             {--kitchen-sink : Accept the kitchen-sink recipe without prompts}';
 
-    protected $description = 'SALT onboarding TUI — discover frontend/panel/tenancy, then generate';
+    protected $description = 'SALLT onboarding TUI — discover frontend/panel/tenancy, then generate';
 
     public function handle(): int
     {
-        $this->components->info('SALT — Streams · Alpine · Laravel · Livewire · Tailwind');
+        $this->components->info('🧂 SALLT — Streams · Alpine · Laravel · Livewire · Tailwind');
         $this->newLine();
 
         if ($this->option('kitchen-sink')) {
